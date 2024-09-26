@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FForm submission Examples</title>
     <script>
-        const sayHello = () => {
-            alert("HELLO WORLD OF THE PROGRAMMER");
-        };
+        function validateForm(){
+            const inputField = document.forms["myForm"]["username"].value;
+            if (inputField === ""){
+                alert("Username must be filled")
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
     </script>
-    <title>this is the example of the javascript tags</title>
 </head>
 <body>
-
-    <script>
- 
-    </script>
-   <button value="Greeting" onclick="sayHello()">Greeting</button>
+    <form name="myForm" onsubmit="return validateForm()">
+        Username: <input type="text" name="username">
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
